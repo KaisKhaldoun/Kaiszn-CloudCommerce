@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+
+# AWS credentials
+.aws/credentials

@@ -12,5 +12,9 @@ docker-compose.override.yml
 *.tfstate
 *.tfstate.backup
 
+# Terraform lockfile
+!terraform.lock.hcl
+
 # AWS credentials
 .aws/credentials
+

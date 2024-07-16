@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kaiszn-cloudcommerce-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kaiszn-cloudcommerce-app
+  template:
+    metadata:
+      labels:
+        app: kaiszn-cloudcommerce-app
+    spec:
+      containers:
+      - name: kaiszn-cloudcommerce-app
+        image: kaiskh/kaiszn-cloudcommerce-app
+        ports:
+        - containerPort: 3000
+        env:
+        - name: SHOP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: kaiszn-cloudcommerce-app-config
+              key: SHOP_NAME
+        - name: SHOPIFY_API_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: kaiszn-cloudcommerce-app-config
+              key: SHOPIFY_API_VERSION
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: kaiszn-cloudcommerce-app-config
+              key: PORT
+        - name: SHOPIFY_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: kaiszn-cloudcommerce-app-secret
+              key: SHOPIFY_ACCESS_TOKEN
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kaiszn-cloudcommerce-app-service
+spec:
+  type: NodePort
+  selector:
+    app: kaiszn-cloudcommerce-app
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001

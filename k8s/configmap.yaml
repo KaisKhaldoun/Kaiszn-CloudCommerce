@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kaiszn-cloudcommerce-app-config
+data:
+  SHOP_NAME: "kaiszn-store-name"
+  SHOPIFY_API_VERSION: "2024-07"
+  PORT: "3000"

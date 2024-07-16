@@ -12,13 +12,16 @@ Welcome to the Kaiszn CloudCommerce application! This project demonstrates the s
   - [CI/CD Pipeline with GitHub Actions](#cicd-pipeline-with-github-actions)
 - [GitHub Secrets](#github-secrets)
 - [Conclusion](#conclusion)
-- [Future Improvements](#future-improvements)
-
-## 🌟 Project Overview
+- [Documentation and Resources](#documentation-and-resources)
+- [Contributing](#contributing)
+- [License](#license)
+- [Created By](#created-by)
+  
+## Project Overview
 
 The Kaiszn CloudCommerce application integrates with Shopify to pull product data and display it through a Node.js backend. The entire system is containerized using Docker, orchestrated with Kubernetes, and deployed on AWS using EKS. Infrastructure is managed as code with Terraform, ensuring a robust and scalable deployment.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Node.js**: The backend is built with Node.js, leveraging Express for a robust API.
 - **Docker**: Containerization of the Node.js application for consistent environments across development, testing, and production.
@@ -31,7 +34,7 @@ The Kaiszn CloudCommerce application integrates with Shopify to pull product dat
   - **CloudFront**: Content delivery network (CDN) for delivering static content with low latency.
 - **GitHub Actions**: CI/CD pipeline for automating the build, test, and deployment processes.
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### Local Development
 
@@ -39,57 +42,46 @@ The Kaiszn CloudCommerce application integrates with Shopify to pull product dat
    ```sh
    git clone https://github.com/your-username/Kaiszn-CloudCommerce.git
    cd Kaiszn-CloudCommerce
-
-
-## 🔧 Setup Instructions
-
-### Local Development
-
-1. **Clone the repository**:
-   ```sh
-   git clone https://github.com/your-username/Kaiszn-CloudCommerce.git
-   cd Kaiszn-CloudCommerce
-
 
 2. **Set up environment variables**:
-Create a .env file in the root directory with the following content:
 
-SHOPIFY_ACCESS_TOKEN=your_shopify_access_token
-SHOP_NAME=your_shop_name
-SHOPIFY_API_VERSION=2021-01
-PORT=3000
+    **Create a .env file in the /apps directory with the following content** :
+    ```sh
+   SHOPIFY_ACCESS_TOKEN=your_shopify_access_token
+   SHOP_NAME=your_shop_name
+   SHOPIFY_API_VERSION=2024-07
+   PORT=3000
 
 3. **Build and run the Docker container**:
-
-docker build -t kaiszn-cloudcommerce-app .
-docker run -d -p 3000:3000 --env-file .env kaiszn-cloudcommerce-app
+   ```sh
+   docker build -t kaiszn-cloudcommerce-app .
+   docker run -d -p 3000:3000 --env-file .env kaiszn-cloudcommerce-app
 
 
 ## Kubernetes Setup
 
 
 1. **Set up Minikube for local testing**:
-
-minikube start
-kubectl apply -f k8s/deployment.yaml
-kubectl apply -f k8s/configmap.yaml
-kubectl apply -f k8s/secret.yaml
+   ```sh
+   minikube start
+   kubectl apply -f k8s/deployment.yaml
+   kubectl apply -f k8s/configmap.yaml
+   kubectl apply -f k8s/secret.yaml
 
 
 ## AWS Infrastructure with Terraform
 
 1. **Initialize Terraform**:
-
-terraform init
-
+   ```sh
+   terraform init
 
 2. **Plan Terraform deployment**:
-
-terraform plan
+   ```sh
+   terraform plan
 
 3. **Apply Terraform configuration (optional)**:
-
-terraform apply
+   ```sh
+   terraform apply
 
 ## CI/CD Pipeline with GitHub Actions
 
@@ -104,13 +96,13 @@ This project includes a GitHub Actions workflow for CI/CD. The workflow:
 
 ## GitHub Secrets
 
-To securely manage sensitive information and credentials, you need to add the following secrets to your GitHub repository:
-
-DOCKER_USERNAME: Your Docker Hub username.
-DOCKER_PASSWORD: Your Docker Hub password.
-AWS_ACCESS_KEY_ID: Your AWS access key ID.
-AWS_SECRET_ACCESS_KEY: Your AWS secret access key.
-SHOPIFY_ACCESS_TOKEN: Your Shopify access token.
+1. **To securely manage sensitive information and credentials, you need to add the following secrets to your GitHub repository**:
+    ```sh
+   DOCKER_USERNAME: Your Docker Hub username.
+   DOCKER_PASSWORD: Your Docker Hub password.
+   AWS_ACCESS_KEY_ID: Your AWS access key ID.
+   AWS_SECRET_ACCESS_KEY: Your AWS secret access key.
+   SHOPIFY_ACCESS_TOKEN: Your Shopify access token.
 
 
 ## How to Add Secrets in GitHub
@@ -122,12 +114,11 @@ SHOPIFY_ACCESS_TOKEN: Your Shopify access token.
 5. Add each secret listed above with the respective values.
 
 
-
-# 🏆 Conclusion
+#  Conclusion
 
 This project demonstrates a complete DevOps lifecycle, from local development to CI/CD, using a modern tech stack. The combination of Node.js, Docker, Kubernetes, Terraform, and AWS showcases a powerful, scalable, and resilient infrastructure setup. This setup ensures that the application is ready for production with minimal manual intervention, highlighting best practices in infrastructure management and automation.
 
-## 📘 Documentation and Resources
+##  Documentation and Resources
 
 - **Node.js**: [Official Documentation](https://nodejs.org/en/docs/)
 - **Docker**: [Official Documentation](https://docs.docker.com/)
@@ -136,13 +127,17 @@ This project demonstrates a complete DevOps lifecycle, from local development to
 - **AWS**: [Official Documentation](https://aws.amazon.com/documentation/)
 - **GitHub Actions**: [Official Documentation](https://docs.github.com/en/actions)
 
-## 👥 Contributing
+## Contributing
 
 We welcome contributions to improve the Kaiszn CloudCommerce application! Please fork the repository, create a new branch, and submit a pull request. Make sure to follow the [contributing guidelines](CONTRIBUTING.md).
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Created By
+
+This project was created by [kaiskhaldoun](https://github.com/kaiskhaldoun). If you have any questions or suggestions, feel free to reach out!
 
 ---
 
